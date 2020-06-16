@@ -2,7 +2,8 @@ package server
 
 import "net"
 
-func startServer() {
+// StartServer - starts a server
+func StartServer() {
 	ln, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		// handle error

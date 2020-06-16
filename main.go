@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"github.com/chrismooreproductions/dijkstra/utils/server"
+	// "github.com/chrismooreproductions/dijkstra/utils/server"
 )
 
 // TerminationPoints - the desired start and end point
@@ -60,7 +60,7 @@ func main() {
 	fmt.Printf("Welcome to Dijkstra! Please follow the prompt to get your routes from this list of nodes %v...\n", nodes)
 
 	var tp TerminationPoints
-	tp.start = getTerminationPoints(, &nodes)
+	tp.start = getTerminationPoints("start", &nodes)
 	tp.end = getTerminationPoints("end", &nodes)
 
 	var foundRoutes, err = run(&graph, tp)
@@ -207,7 +207,7 @@ func getNodeIndex(nodes *[6]string, node string) (int, error) {
 	return 0, errors.New("Could not find element ")
 }
 
-func getTerminationPoints(position TerminationPoints, nodes *[6]string) int {
+func getTerminationPoints(position string, nodes *[6]string) int {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Printf("Please enter your %s point (a single letter from A-F): -> ", position)
 	node, _ := reader.ReadString('\n')
